@@ -145,6 +145,7 @@ def get_individual_pred_interpretation(shap_pred_sample_df: pd.DataFrame,
 	# Get group-specific absolute SHAP values.
 	group_names=['Somatic Mut.', 'CNA events', 'Mutation Sig.', 'Age/Sex']
 	shaps_in_feature_groups = []; subgroup_names = []
+	shaps_mutations, shaps_clinical, shaps_mut_sigs, shaps_cna = [],[],[],[]
 	for key, feat_names in feature_group_to_features_dict.items():
 		if key == 'mutation':
 			shaps_mutations = list(shap_pred_sample_df.loc[feat_names].abs().values)
@@ -249,6 +250,7 @@ def get_individual_pred_interpretation(shap_pred_sample_df: pd.DataFrame,
 	ax[1].spines['right'].set_visible(False)
 	ax[1].spines['top'].set_visible(False)
 
-	fig.tight_layout()
-	filepath = 'cup_prediction_explanation/'
-	plt.show()
+	filepath = f'../visualization/plots/{filename}'
+	# plt.show()
+	plt.savefig(filepath)
+	return filepath
