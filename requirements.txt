@@ -1,4 +1,3 @@
-absl-py @ file:///home/conda/feedstock_root/build_artifacts/absl-py_1695154477682/work
 adjustText==0.7.3
 aiofiles==23.2.1
 altair==5.1.2
