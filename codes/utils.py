@@ -140,7 +140,7 @@ def get_individual_pred_interpretation(shap_pred_sample_df: pd.DataFrame,
 											   feature_to_feature_group_dict: dict,
                                                sample_info: str = None,
                                                filename: str = None,
-                                               filepath: str = 'others_prediction_explanation',
+                                               filepath: str = '../others_prediction_explanation',
                                                top_feature_num: int = 10,
                                                save_plot: bool = False):
     """
@@ -167,7 +167,7 @@ def get_individual_pred_interpretation(shap_pred_sample_df: pd.DataFrame,
     top_feats_df = pd.DataFrame({
         'feat_name': top_features,
         'SHAP_val': shap_pred_sample_df.loc[top_features],
-        'feat_val': [get_feature_val(feature_name, feature_to_feature_group_dict, feature_sample_df.loc[feature_name]) for feature_name in top_features],
+        'feat_val': feature_sample_df.loc[top_features],
         'color': [get_color(feat, feature_group_to_features_dict) for feat in top_features]
     })
 
@@ -176,12 +176,23 @@ def get_individual_pred_interpretation(shap_pred_sample_df: pd.DataFrame,
     ax.set_xlabel('SHAP Values')
     ax.set_title(sample_info)
     ax.set_yticks([])
+    combined_cohort_age_stats = None
+    combined_cohort_age_stats_path = '../data/combined_cohort_age_stats.pkl'
+    with open(combined_cohort_age_stats_path, "rb") as fp:
+        combined_cohort_age_stats = pickle.load(fp)
 
     # Dynamic positioning of feature names and values
     left_margin = ax.get_xlim()[0] * 1.1  # Calculate the left margin dynamically
     for i, (name, value) in enumerate(zip(top_feats_df['feat_name'], top_feats_df['feat_val'])):
         value_text = f'{int(value)}' if feature_to_feature_group_dict[name] == 'mutation' else f'{value:.2f}'
         # Feature name and value
+        if name == 'Sex':
+            value_text = 'Male' if value == 1.0 else 'Female'
+        if name == 'Age':
+            value_text = int(value * combined_cohort_age_stats['Std_mean'] + combined_cohort_age_stats['Age_mean'])
+        if name[-3:] == 'CNA':
+            value_text = f'{int(value)}'
+
         ax.text(left_margin, i, f'{name}: {value_text}', ha='right', va='center', fontsize=10)
 
     ax.text(left_margin, top_feature_num, f'feature: value', ha='right', va='center', fontsize=10)
