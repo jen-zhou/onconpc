@@ -96,35 +96,24 @@ rfc3339-validator==0.1.4
 rfc3986-validator==0.1.1
 rpds-py==0.10.4
 rpy2==3.5.14
-scikit-learn @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_75x_mwrnoj/croot/scikit-learn_1690978919744/work
-scipy @ file:///Users/runner/miniforge3/conda-bld/scipy-split_1683900453702/work/base/dist/scipy-1.10.1-cp38-cp38-macosx_11_0_arm64.whl#sha256=06d649e33fd400c8608c1083a7bb6f490989227277eae7f65577d925d87848e8
+scikit-learn==0.23.0
+scipy==1.10.1
 semantic-version==2.10.0
 Send2Trash==1.8.2
-shap @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_e1o3yu8e96/croot/shap_1692869543362/work
-six @ file:///home/conda/feedstock_root/build_artifacts/six_1620240208055/work
-slicer @ file:///home/conda/feedstock_root/build_artifacts/slicer_1608146800664/work
+shap==0.36.0
 sniffio==1.3.0
 soupsieve==2.5
 spotipy==2.23.0
-stack-data @ file:///home/conda/feedstock_root/build_artifacts/stack_data_1669632077133/work
 starlette==0.27.0
 tenacity==8.2.3
 terminado==0.17.1
-threadpoolctl @ file:///home/conda/feedstock_root/build_artifacts/threadpoolctl_1689261241048/work
 tik==0.1.0
 tinycss2==1.2.1
 tomli==2.0.1
 toolz==0.12.0
-tornado @ file:///Users/runner/miniforge3/conda-bld/tornado_1695373676159/work
-tqdm @ file:///home/conda/feedstock_root/build_artifacts/tqdm_1691671248568/work
 traitlets==5.11.2
 types-python-dateutil==2.8.19.14
-typing_extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1695040754690/work
-tzdata @ file:///home/conda/feedstock_root/build_artifacts/python-tzdata_1680081134351/work
 tzlocal==5.2
-unicodedata2 @ file:///Users/runner/miniforge3/conda-bld/unicodedata2_1695848146711/work
-uri-template==1.3.0
-urllib3 @ file:///home/conda/feedstock_root/build_artifacts/urllib3_1697720414277/work
 uvicorn==0.23.2
 wcwidth==0.2.8
 webcolors==1.13
@@ -135,4 +124,3 @@ Werkzeug==3.0.1
 widgetsnbextension==4.0.9
 xgboost==1.7.3
 xyzservices==2023.10.1
-zipp @ file:///home/conda/feedstock_root/build_artifacts/zipp_1695255097490/work
