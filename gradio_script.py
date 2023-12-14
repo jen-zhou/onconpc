@@ -2,7 +2,7 @@ import sys
 import os
 
 os.chdir('onconpc_visualization')
-sys.path.append('../codes')
+sys.path.append('./codes')
 print(sys.path)
 import utils 
 import gradio_utils
