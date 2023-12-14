@@ -279,7 +279,7 @@ def show_row(value):
         return (gr.update(visible=False), gr.update(visible=True))
     return (gr.update(visible=False), gr.update(visible=False))
 
-def launch_gradio():
+def launch_gradio(server_name, server_port):
     cancer_types_to_consider = ['Acute Myeloid Leukemia', 'Bladder Urothelial Carcinoma', 'Cholangiocarcinoma',
                                 'Colorectal Adenocarcinoma', 'Diffuse Glioma', 'Endometrial Carcinoma',
                                 'Esophagogastric Adenocarcinoma', 'Gastrointestinal Neuroendocrine Tumors', 'Gastrointestinal Stromal Tumor',
@@ -327,4 +327,4 @@ def launch_gradio():
 
         d.change(show_row, d, [r1, r2])
         
-    demo.launch(debug=True, share=True)
+    demo.launch(debug=True, share=True,server_name=server_name, server_port=server_port)
